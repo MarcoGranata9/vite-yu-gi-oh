@@ -3,6 +3,7 @@ import axios from "axios"
 import {store} from "./store.js"
 import AppHeader from "./components/AppHeader.vue"
 import AppMain from "./components/AppMain.vue"
+import AppLoader from "./components/AppLoader.vue"
  
 export default {
     data() {
@@ -11,21 +12,24 @@ export default {
         }
     },
     created() {
+        this.store.loading = true;
         axios.get(this.store.apiUrl).then((resp) => {
-            this.store.cards = resp.data.data
-            console.log(this.store.cards);
+            this.store.cards = resp.data.data;
+            this.store.loading = false;
         })
     },
     components: {
         AppHeader,
         AppMain,
+        AppLoader,
     },
 }
 </script>
 
 <template>
 <AppHeader/>
-<AppMain/>
+<AppLoader v-if="store.loading"/>
+<AppMain v-else/>
 </template>
 
 <style lang="scss">
