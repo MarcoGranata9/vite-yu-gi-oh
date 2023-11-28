@@ -9,17 +9,28 @@ export default {
 <template>
 <div class="card">
   <img :src="card.card_images[0].image_url" alt="">
-  <h3>{{ card.name }}</h3>
-  <p>{{ card.archetype }}</p>
+  <div class="card-text">
+     <h3>{{ card.name }}</h3>
+      <p>{{ card.archetype }}</p>
+  </div>
+ 
 
 </div>
 </template>
 
 <style scoped lang="scss">
 .card{
-  background-color: #d48f38;
+
+
     img {
     width: 200px;
+    display: block;
+  }
+
+  .card-text {
+    background-color: #d48f38;
+    max-width: 200px;
+    min-height: 100px;
   }
 }
 
