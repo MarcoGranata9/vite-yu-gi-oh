@@ -13,7 +13,7 @@ export default {
     <p>Carte visualizzate: {{ store.cards.length }}</p>
 </template>
 
-<style>
+<style scoped>
 p{
     text-align: end;
 }
