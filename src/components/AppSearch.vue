@@ -1,12 +1,14 @@
 <script>
 import {store} from "../store"
+import CardCounter from "./CardCounter.vue";
 
 export default {
     data() {
         return {
             store,
-        }
-    }
+        };
+    },
+    components: { CardCounter }
 }
 </script>
 
@@ -19,6 +21,7 @@ export default {
             <option value="ally">Ally of Justice</option>
             <option value="ancient">Ancient Gear</option>
         </select>
+        <CardCounter/>
     </div>
 </template>
 

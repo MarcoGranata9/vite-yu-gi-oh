@@ -54,12 +54,23 @@ export default {
                 console.log(resp)
                 this.store.cards = resp.data.data;
                 })
-            } else {
+            } else if (store.select === "ancient"){
                 axios.get(this.store.apiUrl, {
                     params: {
                         num: 20,
                         offset: 0,
                         archetype: "Ancient Gear"
+                    }
+                })
+                .then((resp) => {
+                console.log(resp)
+                this.store.cards = resp.data.data;
+                })
+            } else {
+                axios.get(this.store.apiUrl, {
+                    params: {
+                        num: 20,
+                        offset: 0,
                     }
                 })
                 .then((resp) => {
